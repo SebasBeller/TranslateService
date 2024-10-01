@@ -19,10 +19,13 @@ class TranslateServiceTest {
     TranslateService translateService;
     @Test
     void translate() {
-
         when(apiTranslate.translate("Hola", Language.ES.toString(),Language.EN.toString())).thenReturn("Hello");
+        //arrange
         TranslateRequestDto requestDto=new TranslateRequestDto("Hola",Language.ES,Language.EN);
-        assertEquals("Hello",translateService.translate(requestDto));
+        //act
+        String translatedTest=translateService.translate(requestDto);
+        //assert
+        assertEquals("Hello",translatedTest);
     }
 
 }
